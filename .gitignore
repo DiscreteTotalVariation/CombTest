@@ -1,0 +1,24 @@
+# Compiled C binaries
+ct_save
+ct_c
+
+# Python
+__pycache__/
+*.pyc
+
+# Data (too large for git; download via code/download_data.py)
+data/exact_distributions/*.txt
+data/cdf_exact/*.txt
+data/fitted/cvm_*/*.txt
+data/mc_convergence_results/*.json
+data/*.json
+data/*.txt
+data/*.npy
+data/*.zip
+
+# Paper output
+paper/img/*.png
+
+# OS
+.DS_Store
+Thumbs.db
