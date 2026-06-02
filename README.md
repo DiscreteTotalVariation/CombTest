@@ -1,6 +1,10 @@
 # Comb Test
 
+[![arXiv](https://img.shields.io/badge/arXiv-2606.01465-b31b1b.svg)](https://arxiv.org/abs/2606.01465)
+
 A statistical test for detecting alternating (comb-like) deviations in discrete histograms, based on the Discrete Total Variation (DTV) statistic.
+
+Paper: [*Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation*](https://arxiv.org/abs/2606.01465) (arXiv:2606.01465).
 
 The DTV is defined as the sum of absolute differences between adjacent bins: DTV = Σ|h(i+1) − h(i)|. Under the uniform null hypothesis, DTV follows a known distribution that can be computed exactly via dynamic programming or approximated using a gamma distribution with Monte Carlo parameter estimation.
 
@@ -111,7 +115,17 @@ cd code && make ct_save
 
 If you use this code, please cite:
 
-> N. Banić and N. Elezović, "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation," 2026.
+> N. Banić and N. Elezović, "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation," arXiv:2606.01465, 2026. https://arxiv.org/abs/2606.01465
+
+```bibtex
+@article{banic2026combtest,
+  title   = {Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation},
+  author  = {Bani\'c, Nikola and Elezovi\'c, Neven},
+  journal = {arXiv preprint arXiv:2606.01465},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2606.01465}
+}
+```
 
 ## License
 
