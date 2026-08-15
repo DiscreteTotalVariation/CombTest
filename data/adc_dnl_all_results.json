@@ -1,0 +1,109 @@
+{
+  "fpr_n10": {
+    "50": {
+      "ct_power": 0.0466,
+      "chi2_power": 0.04436,
+      "gtest_power": 0.06672,
+      "mc_ct_power": 0.0466,
+      "gamma_power": 0.0466,
+      "ct_valid": 50000
+    },
+    "100": {
+      "ct_power": 0.04264,
+      "chi2_power": 0.04826,
+      "gtest_power": 0.0556,
+      "mc_ct_power": 0.05124,
+      "gamma_power": 0.04264,
+      "ct_valid": 50000
+    },
+    "200": {
+      "ct_power": 0.04714,
+      "chi2_power": 0.04912,
+      "gtest_power": 0.053,
+      "mc_ct_power": 0.04714,
+      "gamma_power": 0.04714,
+      "ct_valid": 50000
+    },
+    "500": {
+      "ct_power": 0.04752,
+      "chi2_power": 0.04904,
+      "gtest_power": 0.05078,
+      "mc_ct_power": 0.0509,
+      "gamma_power": 0.04752,
+      "ct_valid": 50000
+    }
+  },
+  "power_n10_N200_eps020": {
+    "ct_power": 0.62604,
+    "chi2_power": 0.4486,
+    "gtest_power": 0.46038,
+    "mc_ct_power": 0.62604,
+    "gamma_power": 0.62604,
+    "ct_valid": 50000
+  },
+  "power_n256_N500_eps020": {
+    "ct_power": 0.3686,
+    "chi2_power": 0.22126,
+    "gtest_power": 0.7601,
+    "mc_ct_power": 0.39928,
+    "gamma_power": 0.3686,
+    "ct_valid": 50000
+  },
+  "fpr_n256": {
+    "200": {
+      "ct_power": 0.04682,
+      "chi2_power": 0.05136,
+      "gtest_power": 0.28224,
+      "mc_ct_power": 0.05498,
+      "gamma_power": 0.04682,
+      "ct_valid": 50000
+    },
+    "300": {
+      "ct_power": 0.04798,
+      "chi2_power": 0.05246,
+      "gtest_power": 0.5362,
+      "mc_ct_power": 0.05358,
+      "gamma_power": 0.04798,
+      "ct_valid": 50000
+    },
+    "500": {
+      "ct_power": 0.04574,
+      "chi2_power": 0.05162,
+      "gtest_power": 0.45674,
+      "mc_ct_power": 0.05448,
+      "gamma_power": 0.04574,
+      "ct_valid": 50000
+    },
+    "1000": {
+      "ct_power": 0.04762,
+      "chi2_power": 0.05034,
+      "gtest_power": 0.19058,
+      "mc_ct_power": 0.05074,
+      "gamma_power": null,
+      "ct_valid": 50000
+    }
+  },
+  "random_dnl": {
+    "ct_power": 0.09856,
+    "gamma_power": 0.09856,
+    "chi2_power": 0.11584,
+    "gtest_power": 0.12284
+  },
+  "noncomb_N200_n10": {
+    "inflated_bin": {
+      "ct_power": 0.81008,
+      "gamma_power": 0.81008,
+      "chi2_power": 1.0
+    },
+    "monotonic": {
+      "ct_power": 0.05892,
+      "gamma_power": 0.05892,
+      "chi2_power": 0.91772
+    },
+    "block": {
+      "ct_power": 0.10906,
+      "gamma_power": 0.10906,
+      "chi2_power": 0.86902
+    }
+  }
+}

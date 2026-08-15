@@ -1,0 +1,6 @@
+N=500, n=256, eps=0.20, trials=50000, alpha=0.05, seed=13
+route      fit                   power   critical DTV
+exact      exact CDF           0.36860            427
+cvm_beta   CvM-fitted beta     0.38324            426
+cvm_gamma  CvM-fitted gamma    0.36860            427
+mc_beta    MC-fitted beta      0.39928            425

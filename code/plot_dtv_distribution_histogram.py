@@ -38,7 +38,8 @@ def load_exact_dtv_distribution(N, n, input_dir=EXACT_DISTRIBUTIONS_DIR):
 def plot_dtv_distribution_histogram(N, n, save_path, show=False,
                                     xlim_lower=None, xlim_upper=None,
                                     ylim_lower=None, ylim_upper=None,
-                                    crop=False, normalize=False):
+                                    crop=False, normalize=False, fig_height=8,
+                                    fig_width=13):
     distribution = load_exact_dtv_distribution(N=N, n=n)
 
     bins = [a for a, b in distribution]
@@ -56,7 +57,7 @@ def plot_dtv_distribution_histogram(N, n, save_path, show=False,
     label_fontsize = 36
 
     matplotlib.rc("font", size=tick_fontsize)
-    fig = plt.figure(figsize=(13, 8))
+    fig = plt.figure(figsize=(fig_width, fig_height))
     ax = fig.add_subplot(1, 1, 1)
     ax.bar(bins, height=heights, width=1.0, align="center", edgecolor="black")
     plt.ticklabel_format(style="plain")
@@ -102,6 +103,14 @@ if __name__ == "__main__":
                         help="Auto-crop white margins from the output image")
     parser.add_argument("--normalize", action="store_true",
                         help="Normalize bar heights to sum to 1 (PMF) instead of raw counts")
+    parser.add_argument("--fig-height", type=float, default=8,
+                        help="Canvas height in inches; at a fixed width this changes "
+                             "the printed height only, not the printed font size "
+                             "(default: 8)")
+    parser.add_argument("--fig-width", type=float, default=13,
+                        help="Canvas width in inches. Printed font size scales with "
+                             "printed_width/fig_width, so raise this in step with the "
+                             "printed width to keep labels the same size (default: 13)")
     parser.add_argument("-o", "--output", type=str, default=None,
                         help="Output file path (default: dtv_distribution_histogram_N_{N}_n_{n}.png)")
     args = parser.parse_args()
@@ -117,4 +126,6 @@ if __name__ == "__main__":
                                     ylim_lower=args.ylim_lower,
                                     ylim_upper=args.ylim_upper,
                                     crop=args.crop,
-                                    normalize=args.normalize)
+                                    normalize=args.normalize,
+                                    fig_height=args.fig_height,
+                                    fig_width=args.fig_width)

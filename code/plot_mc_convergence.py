@@ -21,6 +21,16 @@ def main():
                         help="Input directory with per-N JSON files (default: mc_convergence_results)")
     parser.add_argument("--output", type=str, default="../paper/img/mc_convergence.png",
                         help="Output figure path (default: paper/img/mc_convergence.png)")
+    parser.add_argument("--fig-width", type=float, default=14,
+                        help="Canvas width in inches (default: 14)")
+    parser.add_argument("--fig-height", type=float, default=6,
+                        help="Canvas height in inches (default: 6)")
+    parser.add_argument("--stack", action="store_true",
+                        help="Stack the two panels vertically instead of side by side, "
+                             "for placement in a single column")
+    parser.add_argument("--font-scale", type=float, default=1.0,
+                        help="Multiplier for tick, label and title sizes; raise it when "
+                             "the figure is printed narrower (default: 1.0)")
     args = parser.parse_args()
 
     input_dir = args.input_dir
@@ -73,11 +83,13 @@ def main():
         std_errors[K_str] = np.array(stds)
 
     # --- Figure: mean p-value error vs K, aggregated across all N ---
-    tick_fontsize = 14
-    label_fontsize = 18
+    tick_fontsize = 14 * args.font_scale
+    label_fontsize = 18 * args.font_scale
+    title_fontsize = label_fontsize
     matplotlib.rc("font", size=tick_fontsize)
 
-    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+    rows, cols = (2, 1) if args.stack else (1, 2)
+    fig, axes = plt.subplots(rows, cols, figsize=(args.fig_width, args.fig_height))
 
     # Panel (a): Mean error vs K (aggregate across all N)
     ax = axes[0]
@@ -116,7 +128,7 @@ def main():
     ax.set_yscale("log")
     ax.set_xlabel("$K$ (MC samples)", fontsize=label_fontsize)
     ax.set_ylabel("$p$-value error at $\\alpha=0.05$", fontsize=label_fontsize)
-    ax.set_title(f"Aggregate over all $N$ ($n={n}$)", fontsize=label_fontsize)
+    ax.set_title(f"Aggregate over all $N$ ($n={n}$)", fontsize=title_fontsize)
     ax.legend(fontsize=tick_fontsize - 2, loc="upper right")
     ax.grid(True, alpha=0.3, which="both")
 
@@ -139,7 +151,7 @@ def main():
 
     ax.set_xlabel("$N$", fontsize=label_fontsize)
     ax.set_ylabel("Mean $p$-value error", fontsize=label_fontsize)
-    ax.set_title(f"Error vs $N$ for selected $K$ ($n={n}$)", fontsize=label_fontsize)
+    ax.set_title(f"Error vs $N$ for selected $K$ ($n={n}$)", fontsize=title_fontsize)
     ax.legend(fontsize=tick_fontsize - 2, loc="upper right")
     ax.grid(True, alpha=0.3)
     ax.set_yscale("log")

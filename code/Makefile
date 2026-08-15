@@ -2,6 +2,9 @@ CC     = gcc
 CFLAGS = -O3 -march=native -fopenmp
 LDFLAGS = -lgmp -fopenmp
 
+# ct_save is the recommended binary (all optimizations + checkpoint/resume)
+.DEFAULT_GOAL := ct_save
+
 # Link jemalloc if available: eliminates GMP allocator contention under many
 # threads (mpz_realloc goes through per-thread arenas instead of a global lock)
 # Install: sudo apt install libjemalloc-dev

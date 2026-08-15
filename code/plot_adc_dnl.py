@@ -39,13 +39,13 @@ def plot_adc_dnl(input_path, output_path,
     if len(results) == 1:
         axes = [axes]
 
-    colors = {"ct": "#1f77b4", "mc_ct": "#9467bd", "chi2": "#ff7f0e", "gtest": "#2ca02c"}
-    labels = {"ct": "CT (exact)", "mc_ct": "CT (MC)", "chi2": r"Pearson's $\chi^2$", "gtest": "G-test"}
-    markers = {"ct": "o", "mc_ct": "D", "chi2": "s", "gtest": "^"}
+    colors = {"ct": "#1f77b4", "chi2": "#ff7f0e", "gtest": "#2ca02c"}
+    labels = {"ct": "CT (exact)", "chi2": r"Pearson's $\chi^2$", "gtest": "G-test"}
+    markers = {"ct": "o", "chi2": "s", "gtest": "^"}
 
     # Determine which tests are available in the data
     sample_data = next(iter(results.values()))
-    tests = [t for t in ["ct", "mc_ct", "chi2", "gtest"] if t in sample_data]
+    tests = [t for t in ["ct", "chi2", "gtest"] if t in sample_data]
 
     for ax, (dnl_str, data) in zip(axes, sorted(results.items(), key=lambda x: float(x[0]))):
         N_arr = np.array(data["N"])

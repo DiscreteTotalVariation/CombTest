@@ -119,17 +119,17 @@ generate_overlay_plot(xlim_upper=55, crop=True)
 "
 
 # -------------------------------------------------------
-# 3. Fig 2: Beta approximation KS heatmaps (full + zoomed)
+# 3. Fig 3: Beta approximation KS heatmaps (full + zoomed)
 # -------------------------------------------------------
 echo ""
-echo "=== Fig 2a: Beta KS heatmap full (N,n from 2 to 500) ==="
+echo "=== Fig 3a: Beta KS heatmap full (N,n from 2 to 500) ==="
 python3 -c "
 from generate_beta_figures import generate_heatmap
 generate_heatmap('beta', N_max=500,
                  output_name='../paper/img/dtv_to_beta_full.png',
                  crop=True)
 "
-echo "=== Fig 2b: Beta KS heatmap zoomed (N>=100, n>=100) ==="
+echo "=== Fig 3b: Beta KS heatmap zoomed (N>=100, n>=100) ==="
 python3 -c "
 from generate_beta_figures import generate_heatmap
 generate_heatmap('beta', N_max=500, N_min=100, n_min=100,
@@ -137,7 +137,7 @@ generate_heatmap('beta', N_max=500, N_min=100, n_min=100,
                  output_name='../paper/img/dtv_to_beta_zoomed.png',
                  crop=True)
 "
-echo "=== Fig 2c: Beta KS diagonal (N=n) ==="
+echo "=== Fig 3c: Beta KS diagonal (N=n) ==="
 python3 -c "
 from generate_beta_figures import generate_diagonal_ks_plot
 generate_diagonal_ks_plot('beta', N_max=500,
@@ -146,11 +146,11 @@ generate_diagonal_ks_plot('beta', N_max=500,
 "
 
 # -------------------------------------------------------
-# 4. Fig 3: MC convergence (n=10, N=1..600)
+# 4. Fig 2: MC convergence (n=10, N=1..600)
 #    Data generation is slow (~hours). Skip with --plots-only.
 # -------------------------------------------------------
 echo ""
-echo "=== Fig 3: MC convergence ==="
+echo "=== Fig 2: MC convergence ==="
 if [ "$PLOTS_ONLY" = false ]; then
     echo "--- Generating MC convergence data ---"
     python3 experiment_mc_convergence_n10.py \
@@ -227,6 +227,51 @@ echo ""
 echo "=== Beta approximation quality statistics ==="
 if [ "$PLOTS_ONLY" = false ]; then
     python3 compute_beta_match_stats.py --N-max 500
+fi
+
+# -------------------------------------------------------
+# 10. Table I: l1-matched power over ten shapes of departure plus the
+#     uniform null, at both operating points (reproduces Section IV-B).
+# -------------------------------------------------------
+echo ""
+echo "=== Table I: l1-matched power ==="
+if [ "$PLOTS_ONLY" = false ]; then
+    python3 experiment_l1_matched_power.py --N 200 --n 10 --eps1 0.20 \
+        --trials 50000 --output ../data/l1_matched_power_N200_n10.txt
+    python3 experiment_l1_matched_power.py --N 500 --n 256 --eps1 0.20 \
+        --trials 20000 --output ../data/l1_matched_power_N500_n256.txt
+fi
+
+# -------------------------------------------------------
+# 11. Real image data: size and power at n=256 for N up to 5e4
+#     (reproduces Section IV-C3).
+# -------------------------------------------------------
+echo ""
+echo "=== Real image data (n=256, N up to 5e4) ==="
+if [ "$PLOTS_ONLY" = false ]; then
+    python3 experiment_real_images.py --output ../data/real_images_results.txt
+fi
+
+# -------------------------------------------------------
+# 12. Paired route comparison at N=500, n=256: evaluates the exact,
+#     CvM-beta, CvM-gamma and MC-beta p-values on the same histograms
+#     (reproduces the critical values and power quoted in Section III-A).
+# -------------------------------------------------------
+echo ""
+echo "=== Paired route comparison (N=500, n=256) ==="
+if [ "$PLOTS_ONLY" = false ]; then
+    python3 compare_routes_n256.py --output ../data/route_comparison_N500_n256.txt
+fi
+
+# -------------------------------------------------------
+# 13. MC-fit convergence across n: the claim in Section III-B that
+#     convergence depends on K/N but not on n, verified for
+#     n in {5, 10, 20, 30}. Prints to stdout.
+# -------------------------------------------------------
+echo ""
+echo "=== MC-fit convergence across n (Section III-B) ==="
+if [ "$PLOTS_ONLY" = false ]; then
+    python3 experiment_mc_convergence.py
 fi
 
 # -------------------------------------------------------

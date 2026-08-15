@@ -1,0 +1,88 @@
+{
+  "half_to_even": {
+    "100": {
+      "ct_rejections": 1002,
+      "chi2_rejections": 789,
+      "ct_power": 0.1002,
+      "chi2_power": 0.0789,
+      "ct_mean_p": 0.43069445376029114,
+      "chi2_mean_p": 0.43682563441252775
+    },
+    "200": {
+      "ct_rejections": 1727,
+      "chi2_rejections": 1240,
+      "ct_power": 0.1727,
+      "chi2_power": 0.124,
+      "ct_mean_p": 0.35522443192066655,
+      "chi2_mean_p": 0.3816006456126976
+    },
+    "300": {
+      "ct_rejections": 2478,
+      "chi2_rejections": 1733,
+      "ct_power": 0.2478,
+      "chi2_power": 0.1733,
+      "ct_mean_p": 0.2897263691548479,
+      "chi2_mean_p": 0.3300826563622386
+    },
+    "400": {
+      "ct_rejections": 3279,
+      "chi2_rejections": 2219,
+      "ct_power": 0.3279,
+      "chi2_power": 0.2219,
+      "ct_mean_p": 0.23871189332502285,
+      "chi2_mean_p": 0.28621346439121137
+    }
+  },
+  "half_up": {
+    "100": {
+      "ct_rejections": 473,
+      "chi2_rejections": 472,
+      "ct_power": 0.0473,
+      "chi2_power": 0.0472,
+      "ct_mean_p": 0.5111815099517695,
+      "chi2_mean_p": 0.4969915369063732
+    },
+    "200": {
+      "ct_rejections": 525,
+      "chi2_rejections": 511,
+      "ct_power": 0.0525,
+      "chi2_power": 0.0511,
+      "ct_mean_p": 0.510750165475172,
+      "chi2_mean_p": 0.4984877284182084
+    },
+    "300": {
+      "ct_rejections": 470,
+      "chi2_rejections": 528,
+      "ct_power": 0.047,
+      "chi2_power": 0.0528,
+      "ct_mean_p": 0.509603490998652,
+      "chi2_mean_p": 0.5008240826461483
+    },
+    "400": {
+      "ct_rejections": 481,
+      "chi2_rejections": 504,
+      "ct_power": 0.0481,
+      "chi2_power": 0.0504,
+      "ct_mean_p": 0.5034220767785575,
+      "chi2_mean_p": 0.49823192750010037
+    }
+  },
+  "type_i_error": {
+    "100": {
+      "ct_type_i": 0.0436,
+      "chi2_type_i": 0.0489
+    },
+    "200": {
+      "ct_type_i": 0.05,
+      "chi2_type_i": 0.0513
+    },
+    "300": {
+      "ct_type_i": 0.0475,
+      "chi2_type_i": 0.0517
+    },
+    "400": {
+      "ct_type_i": 0.0515,
+      "chi2_type_i": 0.0489
+    }
+  }
+}

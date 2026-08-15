@@ -1,0 +1,20 @@
+{
+  "n": 10,
+  "N_min": 1,
+  "N_max": 600,
+  "K_values": [
+    100,
+    500,
+    1000,
+    2000,
+    5000,
+    10000,
+    20000,
+    50000,
+    100000
+  ],
+  "n_repeats": 100,
+  "seed": 13,
+  "alpha": 0.05,
+  "output_dir": "../data/mc_convergence_results"
+}

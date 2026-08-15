@@ -56,7 +56,8 @@ def load_fitted_params(path):
 
 
 def generate_overlay_plot(xlim_lower=None, xlim_upper=None,
-                          ylim_lower=None, ylim_upper=None, crop=False):
+                          ylim_lower=None, ylim_upper=None, crop=False,
+                          output_name=None, fig_height=8, fig_width=13):
     """Generate DTV histogram with fitted beta overlay for N=50, n=10."""
     N, n = 50, 10
     exact_path = "../data/exact_distributions/N_%d_n_%d.txt" % (N, n)
@@ -79,7 +80,7 @@ def generate_overlay_plot(xlim_lower=None, xlim_upper=None,
     label_fontsize = 36
 
     matplotlib.rc("font", size=tick_fontsize)
-    fig, ax = plt.subplots(figsize=(13, 8))
+    fig, ax = plt.subplots(figsize=(fig_width, fig_height))
     ax.bar(values, pmf, width=0.8, edgecolor="black", label="Exact DTV distribution")
 
     x_smooth = np.linspace(max(values.min() - 1, 0), values.max() + 1, 500)
@@ -102,7 +103,7 @@ def generate_overlay_plot(xlim_lower=None, xlim_upper=None,
                     ylim_upper if ylim_upper is not None else cur_hi)
     fig.tight_layout()
 
-    out = "../paper/img/dtv_distribution_histogram_and_beta_N_50_n_10.png"
+    out = output_name or "../paper/img/dtv_distribution_histogram_and_beta_N_50_n_10.png"
     fig.savefig(out, dpi=300, bbox_inches="tight")
     plt.close(fig)
     if crop:

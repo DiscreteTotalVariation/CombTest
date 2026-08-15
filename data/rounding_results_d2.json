@@ -1,0 +1,70 @@
+{
+  "half_to_even": {
+    "100": {
+      "ct_rejections": 965,
+      "chi2_rejections": 827,
+      "ct_power": 0.0965,
+      "chi2_power": 0.0827,
+      "ct_mean_p": 0.4301087943562254,
+      "chi2_mean_p": 0.4360037103183199
+    },
+    "200": {
+      "ct_rejections": 1784,
+      "chi2_rejections": 1262,
+      "ct_power": 0.1784,
+      "chi2_power": 0.1262,
+      "ct_mean_p": 0.3563849656460168,
+      "chi2_mean_p": 0.38479009368455735
+    },
+    "300": {
+      "ct_rejections": 2523,
+      "chi2_rejections": 1759,
+      "ct_power": 0.2523,
+      "chi2_power": 0.1759,
+      "ct_mean_p": 0.2915854206290936,
+      "chi2_mean_p": 0.3306916784756518
+    },
+    "400": {
+      "ct_rejections": 3348,
+      "chi2_rejections": 2326,
+      "ct_power": 0.3348,
+      "chi2_power": 0.2326,
+      "ct_mean_p": 0.23670714042484078,
+      "chi2_mean_p": 0.2849010993019326
+    }
+  },
+  "half_up": {
+    "100": {
+      "ct_rejections": 496,
+      "chi2_rejections": 536,
+      "ct_power": 0.0496,
+      "chi2_power": 0.0536,
+      "ct_mean_p": 0.5087097519374745,
+      "chi2_mean_p": 0.4927993818738253
+    },
+    "200": {
+      "ct_rejections": 518,
+      "chi2_rejections": 519,
+      "ct_power": 0.0518,
+      "chi2_power": 0.0519,
+      "ct_mean_p": 0.5099552371136691,
+      "chi2_mean_p": 0.5014607426724303
+    },
+    "300": {
+      "ct_rejections": 474,
+      "chi2_rejections": 489,
+      "ct_power": 0.0474,
+      "chi2_power": 0.0489,
+      "ct_mean_p": 0.5031554666174365,
+      "chi2_mean_p": 0.4940916091984676
+    },
+    "400": {
+      "ct_rejections": 518,
+      "chi2_rejections": 528,
+      "ct_power": 0.0518,
+      "chi2_power": 0.0528,
+      "ct_mean_p": 0.5046906029627117,
+      "chi2_mean_p": 0.4978425430234104
+    }
+  }
+}

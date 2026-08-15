@@ -24,7 +24,7 @@ def auto_crop(path):
 
 
 def plot_mean_p_values(d, step, lower_N, upper_N, save_path, input_path=None,
-                       ylim_lower=None, ylim_upper=None, crop=False):
+                       ylim_lower=None, ylim_upper=None, crop=False, fig_height=8):
     if input_path is None:
         input_path = "../data/mean_p_values_d_%d_step_%d.txt" % (d, step)
 
@@ -43,7 +43,7 @@ def plot_mean_p_values(d, step, lower_N, upper_N, save_path, input_path=None,
     label_fontsize = 36
 
     matplotlib.rc("font", size=tick_fontsize)
-    fig, ax = plt.subplots(figsize=(13, 8))
+    fig, ax = plt.subplots(figsize=(13, fig_height))
     ax.set_xlabel("$N$", fontsize=label_fontsize)
     ax.set_ylabel("$p$-value", fontsize=label_fontsize)
 
@@ -87,6 +87,9 @@ if __name__ == "__main__":
                         help="Upper y-axis limit (default: auto)")
     parser.add_argument("--crop", action="store_true",
                         help="Auto-crop white margins from the output image")
+    parser.add_argument("--fig-height", type=float, default=8,
+                        help="Canvas height in inches; width is fixed at 13 so that "
+                             "the printed font size is unaffected (default: 8)")
     parser.add_argument("-i", "--input", type=str, default=None,
                         help="Input data file (default: mean_p_values_d_{d}_step_{step}.txt)")
     parser.add_argument("-o", "--output", type=str, default=None,
@@ -102,4 +105,4 @@ if __name__ == "__main__":
                        upper_N=args.upper_N, save_path=save_path,
                        input_path=args.input,
                        ylim_lower=args.ylim_lower, ylim_upper=args.ylim_upper,
-                       crop=args.crop)
+                       crop=args.crop, fig_height=args.fig_height)

@@ -113,6 +113,11 @@ def load_beta_params(path):
 
 
 # Cache for MC-fitted params
+# The Monte Carlo fitting RNGs below are keyed on (N, n) rather than on --seed
+# by design: the fitted null of a given (N, n) pair is a property of that pair,
+# so keying it this way makes one fit shared and reproducible across every
+# experiment and independent of the trial stream. --seed controls the trial
+# stream only. Changing this changes every MC-fitted number in the paper.
 _mc_beta_cache = {}
 _mc_gamma_cache = {}
 _approx = "gamma"  # set from --approx flag

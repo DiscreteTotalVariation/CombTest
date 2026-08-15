@@ -1,0 +1,246 @@
+{
+  "half_to_even": {
+    "100": {
+      "ct_rejections": 5022,
+      "chi2_rejections": 4184,
+      "ct_power": 0.10044,
+      "chi2_power": 0.08368,
+      "ct_mean_p": 0.42992627388536353,
+      "chi2_mean_p": 0.43569480148360773
+    },
+    "200": {
+      "ct_rejections": 8883,
+      "chi2_rejections": 6319,
+      "ct_power": 0.17766,
+      "chi2_power": 0.12638,
+      "ct_mean_p": 0.3552537078276963,
+      "chi2_mean_p": 0.38166313699536525
+    },
+    "300": {
+      "ct_rejections": 12305,
+      "chi2_rejections": 8505,
+      "ct_power": 0.2461,
+      "chi2_power": 0.1701,
+      "ct_mean_p": 0.2928134938272691,
+      "chi2_mean_p": 0.3333147367127849
+    },
+    "400": {
+      "ct_rejections": 16504,
+      "chi2_rejections": 11243,
+      "ct_power": 0.33008,
+      "chi2_power": 0.22486,
+      "ct_mean_p": 0.23892714972160897,
+      "chi2_mean_p": 0.28739695380879515
+    },
+    "500": {
+      "ct_rejections": 20312,
+      "chi2_rejections": 14037,
+      "ct_power": 0.40624,
+      "chi2_power": 0.28074,
+      "ct_mean_p": 0.1944816651714741,
+      "chi2_mean_p": 0.24661675778038358
+    },
+    "600": {
+      "ct_rejections": 24452,
+      "chi2_rejections": 16960,
+      "ct_power": 0.48904,
+      "chi2_power": 0.3392,
+      "ct_mean_p": 0.15883555239313965,
+      "chi2_mean_p": 0.21188887014989155
+    },
+    "700": {
+      "ct_rejections": 27793,
+      "chi2_rejections": 19795,
+      "ct_power": 0.55586,
+      "chi2_power": 0.3959,
+      "ct_mean_p": 0.12822454900631158,
+      "chi2_mean_p": 0.1817761873220956
+    },
+    "800": {
+      "ct_rejections": 30826,
+      "chi2_rejections": 22714,
+      "ct_power": 0.61652,
+      "chi2_power": 0.45428,
+      "ct_mean_p": 0.10460555692295223,
+      "chi2_mean_p": 0.15705049437491111
+    },
+    "900": {
+      "ct_rejections": 33743,
+      "chi2_rejections": 25479,
+      "ct_power": 0.67486,
+      "chi2_power": 0.50958,
+      "ct_mean_p": 0.08405680728747231,
+      "chi2_mean_p": 0.13233013046939232
+    },
+    "1000": {
+      "ct_rejections": 36243,
+      "chi2_rejections": 28153,
+      "ct_power": 0.72486,
+      "chi2_power": 0.56306,
+      "ct_mean_p": 0.0680944835295597,
+      "chi2_mean_p": 0.11262958960720261
+    },
+    "1100": {
+      "ct_rejections": 38475,
+      "chi2_rejections": 30767,
+      "ct_power": 0.7695,
+      "chi2_power": 0.61534,
+      "ct_mean_p": 0.05454150482795019,
+      "chi2_mean_p": 0.09577920699089222
+    },
+    "1200": {
+      "ct_rejections": 40458,
+      "chi2_rejections": 32996,
+      "ct_power": 0.80916,
+      "chi2_power": 0.65992,
+      "ct_mean_p": 0.04473914492861483,
+      "chi2_mean_p": 0.08185961126115694
+    },
+    "1300": {
+      "ct_rejections": 42143,
+      "chi2_rejections": 35226,
+      "ct_power": 0.84286,
+      "chi2_power": 0.70452,
+      "ct_mean_p": 0.03536028953657963,
+      "chi2_mean_p": 0.06861910864948066
+    },
+    "1400": {
+      "ct_rejections": 43805,
+      "chi2_rejections": 37257,
+      "ct_power": 0.8761,
+      "chi2_power": 0.74514,
+      "ct_mean_p": 0.02830355993768259,
+      "chi2_mean_p": 0.05829985069048073
+    },
+    "1500": {
+      "ct_rejections": 44877,
+      "chi2_rejections": 38921,
+      "ct_power": 0.89754,
+      "chi2_power": 0.77842,
+      "ct_mean_p": 0.022773016098835145,
+      "chi2_mean_p": 0.048954285884380166
+    },
+    "1600": {
+      "ct_rejections": 45855,
+      "chi2_rejections": 40555,
+      "ct_power": 0.9171,
+      "chi2_power": 0.8111,
+      "ct_mean_p": 0.017971301102137446,
+      "chi2_mean_p": 0.04106155408424097
+    },
+    "1700": {
+      "ct_rejections": 46782,
+      "chi2_rejections": 41942,
+      "ct_power": 0.93564,
+      "chi2_power": 0.83884,
+      "ct_mean_p": 0.01423230198094266,
+      "chi2_mean_p": 0.03407810602076778
+    },
+    "1800": {
+      "ct_rejections": 47324,
+      "chi2_rejections": 43053,
+      "ct_power": 0.94648,
+      "chi2_power": 0.86106,
+      "ct_mean_p": 0.01145378656085639,
+      "chi2_mean_p": 0.029057904810385202
+    },
+    "1900": {
+      "ct_rejections": 47866,
+      "chi2_rejections": 44240,
+      "ct_power": 0.95732,
+      "chi2_power": 0.8848,
+      "ct_mean_p": 0.008962570543353095,
+      "chi2_mean_p": 0.023760267184098266
+    },
+    "2000": {
+      "ct_rejections": 48393,
+      "chi2_rejections": 45164,
+      "ct_power": 0.96786,
+      "chi2_power": 0.90328,
+      "ct_mean_p": 0.0069574301350890915,
+      "chi2_mean_p": 0.019848378117735873
+    }
+  },
+  "type_i_error": {
+    "100": {
+      "ct_type_i": 0.0439,
+      "chi2_type_i": 0.04724
+    },
+    "200": {
+      "ct_type_i": 0.04984,
+      "chi2_type_i": 0.04922
+    },
+    "300": {
+      "ct_type_i": 0.04812,
+      "chi2_type_i": 0.05176
+    },
+    "400": {
+      "ct_type_i": 0.04772,
+      "chi2_type_i": 0.04936
+    },
+    "500": {
+      "ct_type_i": 0.04502,
+      "chi2_type_i": 0.04894
+    },
+    "600": {
+      "ct_type_i": 0.04728,
+      "chi2_type_i": 0.04912
+    },
+    "700": {
+      "ct_type_i": 0.04778,
+      "chi2_type_i": 0.04984
+    },
+    "800": {
+      "ct_type_i": 0.04298,
+      "chi2_type_i": 0.04844
+    },
+    "900": {
+      "ct_type_i": 0.04726,
+      "chi2_type_i": 0.04988
+    },
+    "1000": {
+      "ct_type_i": 0.04654,
+      "chi2_type_i": 0.05086
+    },
+    "1100": {
+      "ct_type_i": 0.047,
+      "chi2_type_i": 0.04996
+    },
+    "1200": {
+      "ct_type_i": 0.04972,
+      "chi2_type_i": 0.04892
+    },
+    "1300": {
+      "ct_type_i": 0.04942,
+      "chi2_type_i": 0.05038
+    },
+    "1400": {
+      "ct_type_i": 0.04842,
+      "chi2_type_i": 0.05006
+    },
+    "1500": {
+      "ct_type_i": 0.04692,
+      "chi2_type_i": 0.05088
+    },
+    "1600": {
+      "ct_type_i": 0.04766,
+      "chi2_type_i": 0.04846
+    },
+    "1700": {
+      "ct_type_i": 0.0485,
+      "chi2_type_i": 0.05054
+    },
+    "1800": {
+      "ct_type_i": 0.04688,
+      "chi2_type_i": 0.04942
+    },
+    "1900": {
+      "ct_type_i": 0.04712,
+      "chi2_type_i": 0.05028
+    },
+    "2000": {
+      "ct_type_i": 0.04796,
+      "chi2_type_i": 0.05028
+    }
+  }
+}

@@ -6,13 +6,14 @@ ct_c
 __pycache__/
 *.pyc
 
-# Data (too large for git; download via code/download_data.py)
+# Data: the exact and fitted grids are far too large for git (~144 GB in
+# total). Fetch them with code/download_data.py, or recompute them with
+# code/pipeline.sh --from-scratch. The small result files that the paper's
+# numbers are read from are tracked, so every printed number can be checked
+# without recomputing anything.
 data/exact_distributions/*.txt
 data/cdf_exact/*.txt
 data/fitted/cvm_*/*.txt
-data/mc_convergence_results/*.json
-data/*.json
-data/*.txt
 data/*.npy
 data/*.zip
 

@@ -5,10 +5,11 @@ Simulates histograms under round-half-to-even (banker's rounding) for each N,
 computes test p-values, and outputs mean p-values per N. Resumes from existing
 output if interrupted.
 
-Banker's rounding with d decimal places gives probabilities:
-  even digits: (10^(d+1) + 1) / (2 * 10^(d+1))
-  odd digits:  (10^(d+1) - 1) / (2 * 10^(d+1))
-for n=10 last digits, creating a subtle comb pattern.
+The flag -d is one less than the manuscript's r, the number of decimals the
+rounding discards: r = d + 1.  Over the n = 10 last digits the law is
+  even digits: (10^r + 1) / 10^(r+1)
+  odd digits:  (10^r - 1) / 10^(r+1)
+a period-2 comb of amplitude 10^-(r+1).
 """
 
 import os
@@ -177,12 +178,13 @@ def gtest_pvalue(histogram):
 
 
 def banker_rounding_probs(n, d):
-    """Compute bin probabilities for banker's rounding with d decimal places.
+    """Bin probabilities for banker's rounding discarding r = d + 1 decimals.
 
-    Round-half-to-even maps the midpoint x.5 to even digits, so even digits
-    are slightly more probable:
-      P(even digit) = (10^(d+1) + 1) / (2 * 10^(d+1))
-      P(odd digit)  = (10^(d+1) - 1) / (2 * 10^(d+1))
+    A tie occurs with probability 10^-r and always goes to the even neighbor,
+    so for n = 10 the even digits are slightly more probable:
+      P(even digit) = (10^r + 1) / 10^(r+1)
+      P(odd digit)  = (10^r - 1) / 10^(r+1)
+    The weights below are unnormalized; the division by their sum yields these.
     """
     base = 10 ** (d + 1)
     probs = np.zeros(n)
@@ -207,7 +209,9 @@ def main():
     parser = argparse.ArgumentParser(
         description="Generate mean p-values for banker's rounding experiment")
     parser.add_argument("-d", type=int, default=0,
-                        help="Number of decimal places before rounding (default: 0)")
+                        help="One less than the manuscript's r, the number of "
+                             "decimals discarded by the rounding (default: 0, "
+                             "i.e. r=1)")
     parser.add_argument("--n", type=int, default=10,
                         help="Number of bins / last digits (default: 10)")
     parser.add_argument("--repeat", type=int, default=1000000,
