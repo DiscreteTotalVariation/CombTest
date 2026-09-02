@@ -1,8 +1,14 @@
 # Comb Test
 
+[![DOI](https://img.shields.io/badge/DOI-10.1109%2FLSP.2026.3728406-00629b.svg)](https://doi.org/10.1109/LSP.2026.3728406)
+[![IEEE Xplore](https://img.shields.io/badge/IEEE%20Xplore-11669936-00629b.svg)](https://ieeexplore.ieee.org/document/11669936)
+[![arXiv](https://img.shields.io/badge/arXiv-2606.01465-b31b1b.svg)](https://arxiv.org/abs/2606.01465)
+
 A statistical test for detecting alternating (comb-like) deviations in discrete histograms, based on the Discrete Total Variation (DTV) statistic.
 
-The DTV is defined as the sum of absolute differences between adjacent bins: DTV = sum |h_{i+1} - h_i|. Under the uniform null hypothesis, DTV follows a known distribution that can be computed exactly via dynamic programming or approximated using a four-parameter beta distribution.
+Paper: [*Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation*](https://ieeexplore.ieee.org/document/11669936), IEEE Signal Processing Letters, 2026. [doi:10.1109/LSP.2026.3728406](https://doi.org/10.1109/LSP.2026.3728406). Preprint: [arXiv:2606.01465](https://arxiv.org/abs/2606.01465).
+
+The DTV is defined as the sum of absolute differences between adjacent bins: DTV = Σ|h(i+1) − h(i)|. Under the uniform null hypothesis, DTV follows a known distribution that can be computed exactly via dynamic programming or approximated using a gamma distribution with Monte Carlo parameter estimation.
 
 ## Project Structure
 
@@ -126,10 +132,32 @@ All other results depend on beta and gamma only.
 
 ## Key Results
 
-- The **beta distribution** is the best continuous approximation for DTV (median p-value error 0.000116 across 249,001 (N,n) pairs)
-- **MC+beta** approximation: K=50,000 Monte Carlo samples achieves error < 0.001 for N <= 500
-- Among ten L1-matched departure shapes, the **period-2 comb** is the one direction where CT beats chi-squared and the G-test, at both operating points (0.623 vs 0.449 and 0.461 at n=10, N=200; 0.376 vs 0.229 at n=256, N=500)
-- CT has **no advantage** for smooth or monotonic deviations, nor for single jumps or depleted blocks (by design)
+- **Gamma is the recommended approximation.** Every approximate p-value uses
+  p ≈ 1 − F_γ(d − 0.5), with the standard continuity correction for an integer
+  statistic. At N=500, n=256 it reproduces both the exact critical DTV of 427
+  and the exact power of 0.369, while the beta fit gives 426 and inflates that
+  power to 0.383.
+- **Beta is the best global fit, which is not the same as the better test.** Of
+  twenty-nine candidates fitted by a discrete Cramér–von Mises statistic over
+  N, n ∈ {2,…,500}, beta attains the lowest **median** W². Its critical values
+  match the exact ones for 50.7% of the 249,001 pairs and differ by at most 1
+  for over 99.9%; the median p-value error is 0.000116, or 0.000089 for N ≥ 5n.
+  W² weights the whole support, whereas a test depends only on the far right
+  tail — hence gamma.
+- **Monte Carlo fitting converges with K/N, not with n** (verified for
+  n ∈ {5, 10, 20, 30}). At K/N ≥ 100 the mean absolute p-value error at α=0.05
+  is within 2% (relative) of the exact-fit baseline, so K=50,000 covers N ≤ 500.
+- **The period-2 comb is the one direction where CT gains over chi-square**, at
+  both operating points of the ℓ1-matched comparison (0.623 vs 0.449 at n=10,
+  N=200; 0.376 vs 0.229 at n=256, N=500). It is not CT's highest-power row: the
+  single spike (0.674 and 0.948) and, at n=10, the unstructured departure
+  (0.764) are higher.
+- **CT has no advantage** for smooth, monotonic, single-jump or depleted-block
+  departures, and chi-square is preferable for those. Recommended usage is
+  N ≥ 5n.
+- **Validated on real image data up to N = 5·10⁴** (n=256, nine scikit-image
+  test images): CT's false positive rate stays at 0.046–0.048 throughout, while
+  the G-test is unusable at this bin count (0.455 at N=500).
 
 ## Documentation
 
@@ -153,3 +181,36 @@ sudo apt install gcc libgmp-dev libomp-dev
 # Compile
 cd code && make ct_save
 ```
+
+## Citation
+
+If you use this code, please cite the published paper:
+
+> N. Banić and N. Elezović, "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation," *IEEE Signal Processing Letters*, 2026. doi: 10.1109/LSP.2026.3728406. https://ieeexplore.ieee.org/document/11669936
+
+```bibtex
+@article{banic2026combtest,
+  title   = {Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation},
+  author  = {Bani\'c, Nikola and Elezovi\'c, Neven},
+  journal = {IEEE Signal Processing Letters},
+  year    = {2026},
+  doi     = {10.1109/LSP.2026.3728406}
+}
+```
+
+The preprint remains available on arXiv and can be cited where the published
+version is not accessible:
+
+```bibtex
+@article{banic2026combtest-preprint,
+  title   = {Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation},
+  author  = {Bani\'c, Nikola and Elezovi\'c, Neven},
+  journal = {arXiv preprint arXiv:2606.01465},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2606.01465}
+}
+```
+
+## License
+
+MIT
